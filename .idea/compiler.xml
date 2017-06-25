@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="md-app-service" />
+        <module name="md-app-web" />
+        <module name="md-common" />
+        <module name="md-dao" />
+        <module name="md-mq-consumer" />
+        <module name="md-mq-product" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="md" target="1.7" />
+      <module name="md-app-service" target="1.7" />
+      <module name="md-app-web" target="1.7" />
+      <module name="md-common" target="1.7" />
+      <module name="md-dao" target="1.7" />
+      <module name="md-mq" target="1.7" />
+      <module name="md-mq-consumer" target="1.7" />
+      <module name="md-mq-product" target="1.7" />
+      <module name="md-service-parent" target="1.7" />
+      <module name="md-web-parent" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

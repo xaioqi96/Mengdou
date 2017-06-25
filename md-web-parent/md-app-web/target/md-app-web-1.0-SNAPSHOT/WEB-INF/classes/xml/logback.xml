@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+    <!-- 日志文件路径 -->
+    <!-- <property resource="default.properties" /> -->
+    <!-- 日志文件路径 -->
+    <property name="logs.dir" value="logs"></property>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d [%-5t] %-5level [%logger{45}->%M %L] - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <!-- debug -->
+    <appender name="rootDebug"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logs.dir}/root-debug.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${logs.dir}/root-debug.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <!-- keep 180 days' worth of history -->
+            <maxHistory>180</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%-5t][%logger{45}->%M %L] - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- info -->
+    <appender name="rootInfo"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logs.dir}/root-info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${logs.dir}/root-info.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <!-- keep 180 days' worth of history -->
+            <maxHistory>180</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%-5t][%logger{45}->%M %L] - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- warn -->
+    <appender name="rootWarn"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logs.dir}/root-warn.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${logs.dir}/root-warn.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <!-- keep 180 days' worth of history -->
+            <maxHistory>180</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%-5t][%logger{45}->%M %L] - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- error -->
+    <appender name="rootError"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logs.dir}/root-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${logs.dir}/root-error.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <!-- keep 180 days' worth of history -->
+            <maxHistory>180</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%-5t][%logger{45}->%M %L] - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- custom -->
+    <appender name="chinapay"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logs.dir}/chinapay.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${logs.dir}/chinapay.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <!-- keep 180 days' worth of history -->
+            <maxHistory>180</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%-5t] %-5level [%logger{45}->%M %L] - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="mybatis"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logs.dir}/mybatis.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${logs.dir}/mybatis.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <!-- keep 180 days' worth of history -->
+            <maxHistory>180</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%-5t] %-5level [%logger{45}->%M %L] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.md" level="debug">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="rootDebug" />
+        <appender-ref ref="rootInfo" />
+        <appender-ref ref="rootWarn" />
+        <appender-ref ref="rootError" />
+    </logger>
+
+
+</configuration>

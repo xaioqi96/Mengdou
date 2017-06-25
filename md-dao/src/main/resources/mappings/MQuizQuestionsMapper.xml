@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.md.mapper.MQuizQuestionsMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		  id, title, content, answer, ask_num, reward_num, level, is_home, status, user_id, insert_time, update_time
+	</sql>
+
+	<!-- 通用条件-->
+	<sql id="Base_Condition">
+		<where>
+			<if test="null != id">
+				AND id = #{id}
+			</if>
+			<if test="null != title and '' != title">
+				AND title = #{title}
+			</if>
+			<if test="null != content and '' != content">
+				AND content = #{content}
+			</if>
+			<if test="null != answer and '' != answer">
+				AND answer = #{answer}
+			</if>
+			<if test="null != askNum">
+				AND ask_num = #{askNum}
+			</if>
+			<if test="null != rewardNum">
+				AND reward_num = #{rewardNum}
+			</if>
+			<if test="null != level">
+				AND level = #{level}
+			</if>
+			<if test="null != isHome and '' != isHome">
+				AND is_home = #{isHome}
+			</if>
+			<if test="null != status and '' != status">
+				AND status = #{status}
+			</if>
+			<if test="null != userId">
+				AND user_id = #{userId}
+			</if>
+			<if test="null != insertTime and '' != insertTime">
+				AND insert_time = #{insertTime}
+			</if>
+			<if test="null != updateTime and '' != updateTime">
+				AND update_time = #{updateTime}
+			</if>
+
+		</where>
+	</sql>
+
+	<!-- 查询 -->
+	<select id="selectList" resultType="mQuizQuestions">
+		 SELECT
+			 <include refid="Base_Column_List" />
+		 FROM m_quiz_questions
+			 <include refid="Base_Condition" />
+	</select>
+
+	<!--删除 -->
+	<delete id="delete" parameterType="mQuizQuestions">
+		 DELETE FROM m_quiz_questions
+		 WHERE id = #{id}
+	</delete>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert" parameterType="mQuizQuestions">
+		 INSERT INTO m_quiz_questions
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 id,
+			</if>
+			<if test="title != null">
+				 title,
+			</if>
+			<if test="content != null">
+				 content,
+			</if>
+			<if test="answer != null">
+				 answer,
+			</if>
+			<if test="askNum != null">
+				 ask_num,
+			</if>
+			<if test="rewardNum != null">
+				 reward_num,
+			</if>
+			<if test="level != null">
+				 level,
+			</if>
+			<if test="isHome != null">
+				 is_home,
+			</if>
+			<if test="status != null">
+				 status,
+			</if>
+			<if test="userId != null">
+				 user_id,
+			</if>
+			<if test="insertTime != null">
+				 insert_time,
+			</if>
+			<if test="updateTime != null">
+				 update_time,
+			</if>
+
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 #{id},
+			</if>
+			<if test="title != null">
+				 #{title},
+			</if>
+			<if test="content != null">
+				 #{content},
+			</if>
+			<if test="answer != null">
+				 #{answer},
+			</if>
+			<if test="askNum != null">
+				 #{askNum},
+			</if>
+			<if test="rewardNum != null">
+				 #{rewardNum},
+			</if>
+			<if test="level != null">
+				 #{level},
+			</if>
+			<if test="isHome != null">
+				 #{isHome},
+			</if>
+			<if test="status != null">
+				 #{status},
+			</if>
+			<if test="userId != null">
+				 #{userId},
+			</if>
+			<if test="insertTime != null">
+				 #{insertTime},
+			</if>
+			<if test="updateTime != null">
+				 #{updateTime},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改（匹配有值的字段）-->
+	<update id="update" parameterType="mQuizQuestions">
+		 UPDATE m_quiz_questions
+ 		 <set> 
+			<if test="title != null">
+				 title = #{title},
+			</if>
+			<if test="content != null">
+				 content = #{content},
+			</if>
+			<if test="answer != null">
+				 answer = #{answer},
+			</if>
+			<if test="askNum != null">
+				 ask_num = #{askNum},
+			</if>
+			<if test="rewardNum != null">
+				 reward_num = #{rewardNum},
+			</if>
+			<if test="level != null">
+				 level = #{level},
+			</if>
+			<if test="isHome != null">
+				 is_home = #{isHome},
+			</if>
+			<if test="status != null">
+				 status = #{status},
+			</if>
+			<if test="userId != null">
+				 user_id = #{userId},
+			</if>
+			<if test="insertTime != null">
+				 insert_time = #{insertTime},
+			</if>
+			<if test="updateTime != null">
+				 update_time = #{updateTime},
+			</if>
+
+ 		 </set>
+		 WHERE id = #{id}
+	</update>
+
+
+</mapper>

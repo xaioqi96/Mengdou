@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/md.iml" filepath="$PROJECT_DIR$/md.iml" />
+      <module fileurl="file://$PROJECT_DIR$/md-service-parent/md-app-service/md-app-service.iml" filepath="$PROJECT_DIR$/md-service-parent/md-app-service/md-app-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/md-web-parent/md-app-web/md-app-web.iml" filepath="$PROJECT_DIR$/md-web-parent/md-app-web/md-app-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/md-common/md-common.iml" filepath="$PROJECT_DIR$/md-common/md-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/md-dao/md-dao.iml" filepath="$PROJECT_DIR$/md-dao/md-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/md-mq/md-mq-consumer/md-mq-consumer.iml" filepath="$PROJECT_DIR$/md-mq/md-mq-consumer/md-mq-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/md-mq/md-mq-product/md-mq-product.iml" filepath="$PROJECT_DIR$/md-mq/md-mq-product/md-mq-product.iml" />
+    </modules>
+  </component>
+</project>

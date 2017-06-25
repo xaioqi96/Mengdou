@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.md.mapper.MUsersMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		  user_id, user_code, user_name, phone_no, pass_word, head_rul, create_time, login_time
+	</sql>
+
+	<!-- 通用条件-->
+	<sql id="Base_Condition">
+		<where>
+			<if test="null != userId">
+				AND user_id = #{userId}
+			</if>
+			<if test="null != userCode and '' != userCode">
+				AND user_code = #{userCode}
+			</if>
+			<if test="null != userName and '' != userName">
+				AND user_name = #{userName}
+			</if>
+			<if test="null != phoneNo and '' != phoneNo">
+				AND phone_no = #{phoneNo}
+			</if>
+			<if test="null != passWord and '' != passWord">
+				AND pass_word = #{passWord}
+			</if>
+			<if test="null != headRul and '' != headRul">
+				AND head_rul = #{headRul}
+			</if>
+			<if test="null != createTime and '' != createTime">
+				AND create_time = #{createTime}
+			</if>
+			<if test="null != loginTime and '' != loginTime">
+				AND login_time = #{loginTime}
+			</if>
+
+		</where>
+	</sql>
+
+	<!-- 查询 -->
+	<select id="selectList" resultType="mUsers">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM m_users
+		<include refid="Base_Condition" />
+	</select>
+
+	<!--删除 -->
+	<delete id="delete" parameterType="mUsers">
+		DELETE FROM m_users
+		WHERE user_id = #{userId}
+	</delete>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert" parameterType="mUsers">
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="carNo">
+			SELECT LAST_INSERT_ID() AS userId
+		</selectKey>
+
+		INSERT INTO m_users
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="userCode != null">
+				user_code,
+			</if>
+			<if test="userName != null">
+				user_name,
+			</if>
+			<if test="phoneNo != null">
+				phone_no,
+			</if>
+			<if test="passWord != null">
+				pass_word,
+			</if>
+			<if test="headRul != null">
+				head_rul,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="loginTime != null">
+				login_time,
+			</if>
+
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="userId != null">
+				#{userId},
+			</if>
+			<if test="userCode != null">
+				#{userCode},
+			</if>
+			<if test="userName != null">
+				#{userName},
+			</if>
+			<if test="phoneNo != null">
+				#{phoneNo},
+			</if>
+			<if test="passWord != null">
+				#{passWord},
+			</if>
+			<if test="headRul != null">
+				#{headRul},
+			</if>
+			<if test="createTime != null">
+				#{createTime},
+			</if>
+			<if test="loginTime != null">
+				#{loginTime},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修 改（匹配有值的字段）-->
+	<update id="update" parameterType="mUsers">
+		UPDATE m_users
+		<set>
+			<if test="userCode != null">
+				user_code = #{userCode},
+			</if>
+			<if test="userName != null">
+				user_name = #{userName},
+			</if>
+			<if test="phoneNo != null">
+				phone_no = #{phoneNo},
+			</if>
+			<if test="passWord != null">
+				pass_word = #{passWord},
+			</if>
+			<if test="headRul != null">
+				head_rul = #{headRul},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime},
+			</if>
+			<if test="loginTime != null">
+				login_time = #{loginTime},
+			</if>
+
+		</set>
+		WHERE user_id = #{userId}
+	</update>
+
+
+	<!-- 查询 -->
+	<select id="getMUsersByPhoneNo" resultType="mUsers">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM m_users u
+		WHERE 1=1
+		AND u.phone_no = #{phoneNo}
+
+
+	</select>
+
+	<select id="getMUsersById" resultType="mUsers">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM m_users u
+		WHERE 1=1
+		AND u.user_id = #{userId}
+
+
+	</select>
+
+</mapper>

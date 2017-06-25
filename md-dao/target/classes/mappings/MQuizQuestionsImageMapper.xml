@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.md.mapper.MQuizQuestionsImageMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		  id, q_id, rul, status, insert_time, update_time
+	</sql>
+
+	<!-- 通用条件-->
+	<sql id="Base_Condition">
+		<where>
+			<if test="null != id">
+				AND id = #{id}
+			</if>
+			<if test="null != qId">
+				AND q_id = #{qId}
+			</if>
+			<if test="null != rul and '' != rul">
+				AND rul = #{rul}
+			</if>
+			<if test="null != status and '' != status">
+				AND status = #{status}
+			</if>
+			<if test="null != insertTime and '' != insertTime">
+				AND insert_time = #{insertTime}
+			</if>
+			<if test="null != updateTime and '' != updateTime">
+				AND update_time = #{updateTime}
+			</if>
+
+		</where>
+	</sql>
+
+	<!-- 查询 -->
+	<select id="selectList" resultType="mQuizQuestionsImage">
+		 SELECT
+			 <include refid="Base_Column_List" />
+		 FROM m_quiz_questions_image
+			 <include refid="Base_Condition" />
+	</select>
+
+	<!--删除 -->
+	<delete id="delete" parameterType="mQuizQuestionsImage">
+		 DELETE FROM m_quiz_questions_image
+		 WHERE id = #{id}
+	</delete>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert" parameterType="mQuizQuestionsImage">
+		 INSERT INTO m_quiz_questions_image
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 id,
+			</if>
+			<if test="qId != null">
+				 q_id,
+			</if>
+			<if test="rul != null">
+				 rul,
+			</if>
+			<if test="status != null">
+				 status,
+			</if>
+			<if test="insertTime != null">
+				 insert_time,
+			</if>
+			<if test="updateTime != null">
+				 update_time,
+			</if>
+
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 #{id},
+			</if>
+			<if test="qId != null">
+				 #{qId},
+			</if>
+			<if test="rul != null">
+				 #{rul},
+			</if>
+			<if test="status != null">
+				 #{status},
+			</if>
+			<if test="insertTime != null">
+				 #{insertTime},
+			</if>
+			<if test="updateTime != null">
+				 #{updateTime},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改（匹配有值的字段）-->
+	<update id="update" parameterType="mQuizQuestionsImage">
+		 UPDATE m_quiz_questions_image
+ 		 <set> 
+			<if test="qId != null">
+				 q_id = #{qId},
+			</if>
+			<if test="rul != null">
+				 rul = #{rul},
+			</if>
+			<if test="status != null">
+				 status = #{status},
+			</if>
+			<if test="insertTime != null">
+				 insert_time = #{insertTime},
+			</if>
+			<if test="updateTime != null">
+				 update_time = #{updateTime},
+			</if>
+
+ 		 </set>
+		 WHERE id = #{id}
+	</update>
+
+
+</mapper>

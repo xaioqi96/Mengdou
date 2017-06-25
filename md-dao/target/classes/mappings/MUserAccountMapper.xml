@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.md.mapper.MUserAccountMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		  id, user_id, md_num, insert_time, update_time
+	</sql>
+
+	<!-- 通用条件-->
+	<sql id="Base_Condition">
+		<where>
+			<if test="null != id">
+				AND id = #{id}
+			</if>
+			<if test="null != userId">
+				AND user_id = #{userId}
+			</if>
+			<if test="null != mdNum">
+				AND md_num = #{mdNum}
+			</if>
+			<if test="null != insertTime">
+				AND insert_time = #{insertTime}
+			</if>
+			<if test="null != updateTime">
+				AND update_time = #{updateTime}
+			</if>
+
+		</where>
+	</sql>
+
+	<!-- 查询 -->
+	<select id="selectList" resultType="mUserAccount">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM m_user_account
+		<include refid="Base_Condition" />
+	</select>
+
+	<!--删除 -->
+	<delete id="delete" parameterType="mUserAccount">
+		DELETE FROM m_user_account
+		WHERE id = #{id}
+	</delete>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert" parameterType="mUserAccount">
+		INSERT INTO m_user_account
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				id,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="mdNum != null">
+				md_num,
+			</if>
+			<if test="insertTime != null">
+				insert_time,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="userId != null">
+				#{userId},
+			</if>
+			<if test="mdNum != null">
+				#{mdNum},
+			</if>
+			<if test="insertTime != null">
+				#{insertTime},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修 改（匹配有值的字段）-->
+	<update id="update" parameterType="mUserAccount">
+		UPDATE m_user_account
+		<set>
+			<if test="userId != null">
+				user_id = #{userId},
+			</if>
+			<if test="mdNum != null">
+				md_Num = #{mdNum},
+			</if>
+			<if test="insertTime != null">
+				insert_time = #{insertTime},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime},
+			</if>
+
+		</set>
+		WHERE id = #{id}
+	</update>
+
+
+	<!-- 查询 -->
+	<select id="getAccountByUserId" resultType="mUserAccount">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM m_user_account a
+		WHERE 1=1
+		AND a.user_id = #{userId}
+
+	</select>
+
+
+</mapper>

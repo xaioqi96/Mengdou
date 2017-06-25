@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+    <properties>
+        <property name="dialect" value="mysql"/>
+    </properties>
+
+
+    <settings>
+        <!-- sql缓存 -->
+        <!--<setting name="cacheEnabled" value="true"/>-->
+
+        <!-- sql执行超时时长 -->
+        <setting name="defaultStatementTimeout" value="3000"/>
+
+
+        <!-- 驼峰转换-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+
+        <!-- 自增长 列支持 -->
+        <setting name="useGeneratedKeys" value="true"/>
+    </settings>
+
+    <!-- Continue going here -->
+
+    <plugins>
+        <plugin interceptor="com.md.pages.PageInterceptor"></plugin>
+    </plugins>
+
+</configuration>

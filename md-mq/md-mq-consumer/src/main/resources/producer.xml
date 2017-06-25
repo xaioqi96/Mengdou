@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:property-placeholder location="classpath*:aliyunmq.properties" ignore-unresolvable="true" />
+    <bean id="producer" class="com.md.mq.product.MdProducer" init-method="start" destroy-method="shutdown">
+        <property name="topic" value="${aliyunmq.topic}"/>
+        <property name="properties"> <!--生产者配置信息 -->
+            <props>
+                <prop key="ProducerId">${aliyunmq.producer.ProducerId}</prop>
+                <prop key="AccessKey">${aliyunmq.AccessKey}</prop>
+                <prop key="SecretKey">${aliyunmq.SecretKey}</prop>
+                <prop key="ONSAddr">${aliyunmq.ONSAddr}</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

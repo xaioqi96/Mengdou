@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- Test msg -->
+    <bean id="testMsgListener" class="com.md.mq.consumer.listener.TestMsgListener"></bean> <!--Listener配置-->
+    <bean class="com.aliyun.openservices.ons.api.bean.ConsumerBean" init-method="start" destroy-method="shutdown">
+        <property name="properties"> <!--消费者配置信息 -->
+            <props>
+                <prop key="ConsumerId">${aliyunmq.consumer.testmsg}</prop> <!--请替换XXX-->
+                <prop key="AccessKey">${aliyunmq.AccessKey}</prop>
+                <prop key="SecretKey">${aliyunmq.SecretKey}</prop>
+                <!--将消费者线程数固定为50个
+                <prop key="ConsumeThreadNums">50</prop>
+                -->
+            </props>
+        </property>
+        <property name="subscriptionTable">
+            <map>
+                <entry value-ref="testMsgListener">
+                    <key>
+                        <bean class="com.aliyun.openservices.ons.api.bean.Subscription">
+                            <property name="topic" value="${aliyunmq.topic}" />
+                            <property name="expression" value="com.md.mq.bean.TestMsg"/>
+                        </bean>
+                    </key>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="msgListener" class="com.md.mq.consumer.listener.DemoMessageListener"></bean> <!--Listener配置-->
+
+    <bean  class="com.aliyun.openservices.ons.api.bean.ConsumerBean" init-method="start" destroy-method="shutdown">
+        <property name="properties" > <!--消费者配置信息-->
+            <props>
+                <prop key="ConsumerId">${aliyunmq.consumer.teststr}</prop> <!--请替换XXX-->
+                <prop key="AccessKey">${aliyunmq.AccessKey}</prop>
+                <prop key="SecretKey">${aliyunmq.SecretKey}</prop>
+                <!--将消费者线程数固定为50个
+                <prop key="ConsumeThreadNums">50</prop>
+                -->
+            </props>
+        </property>
+        <property name="subscriptionTable">
+            <map>
+                <entry value-ref="msgListener">
+                    <key>
+                        <bean class="com.aliyun.openservices.ons.api.bean.Subscription">
+                            <property name="topic" value="${aliyunmq.topic}"/>
+                            <property name="expression" value="java.lang.String"/><!--expression即Tag，可以设置成具体的Tag，如 taga||tagb||tagc，也可设置成*。 *仅代表订阅所有Tag，不支持通配-->
+                        </bean>
+                    </key>
+                </entry>
+                <!--更多的订阅添加entry节点即可-->
+            </map>
+        </property>
+    </bean>
+
+
+</beans>

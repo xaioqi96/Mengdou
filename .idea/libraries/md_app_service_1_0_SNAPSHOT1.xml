@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="md-app-service-1.0-SNAPSHOT1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/md-service-parent/md-app-service/target/md-app-service-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

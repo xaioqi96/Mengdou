@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="md-mq-consumer-1.0-SNAPSHOT1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/md-mq/md-mq-consumer/target/md-mq-consumer-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
