@@ -13,6 +13,19 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
     </context:component-scan>
 
+
+    <!-- 拦截器 -->
+    <!-- 多个拦截器,顺序执行 -->
+    <!-- 如果不配置或/*,将拦截所有的Controller -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <mvc:exclude-mapping path="/resource/**/*" />
+            <bean class="com.md.interceptor.AuthInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
     <!-- 视图解析器:定义跳转的文件的前后缀 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
 
