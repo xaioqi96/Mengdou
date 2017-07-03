@@ -1,7 +1,8 @@
-package com.md.app.service;
+package com.md.app.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.md.app.service.IndexService;
 import com.md.entity.MQuizQuestions;
 import com.md.mapper.MQuizQuestionsMapper;
 import com.md.mq.bean.TestMsg;
