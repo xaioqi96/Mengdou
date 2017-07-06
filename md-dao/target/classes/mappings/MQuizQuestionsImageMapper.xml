@@ -4,29 +4,35 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		  id, q_id, rul, status, insert_time, update_time
+		  ID, q_id, q_name, q_url, q_type, q_isflag, inserttime, updatetime
 	</sql>
 
 	<!-- 通用条件-->
 	<sql id="Base_Condition">
 		<where>
-			<if test="null != id">
-				AND id = #{id}
+			<if test="null != ID">
+				AND ID = #{ID}
 			</if>
 			<if test="null != qId">
 				AND q_id = #{qId}
 			</if>
-			<if test="null != rul and '' != rul">
-				AND rul = #{rul}
+			<if test="null != qName and '' != qName">
+				AND q_name = #{qName}
 			</if>
-			<if test="null != status and '' != status">
-				AND status = #{status}
+			<if test="null != qUrl and '' != qUrl">
+				AND q_url = #{qUrl}
 			</if>
-			<if test="null != insertTime and '' != insertTime">
-				AND insert_time = #{insertTime}
+			<if test="null != qType and '' != qType">
+				AND q_type = #{qType}
 			</if>
-			<if test="null != updateTime and '' != updateTime">
-				AND update_time = #{updateTime}
+			<if test="null != qIsflag and '' != qIsflag">
+				AND q_isflag = #{qIsflag}
+			</if>
+			<if test="null != inserttime">
+				AND inserttime = #{inserttime}
+			</if>
+			<if test="null != updatetime">
+				AND updatetime = #{updatetime}
 			</if>
 
 		</where>
@@ -43,51 +49,63 @@
 	<!--删除 -->
 	<delete id="delete" parameterType="mQuizQuestionsImage">
 		 DELETE FROM m_quiz_questions_image
-		 WHERE id = #{id}
+		 WHERE ID = #{ID}
 	</delete>
 
 	<!-- 添加 （匹配有值的字段）-->
 	<insert id="insert" parameterType="mQuizQuestionsImage">
 		 INSERT INTO m_quiz_questions_image
 		 <trim prefix="(" suffix=")" suffixOverrides="," >
-			<if test="id != null">
-				 id,
+			<if test="ID != null">
+				 ID,
 			</if>
 			<if test="qId != null">
 				 q_id,
 			</if>
-			<if test="rul != null">
-				 rul,
+			<if test="qName != null">
+				 q_name,
 			</if>
-			<if test="status != null">
-				 status,
+			<if test="qUrl != null">
+				 q_url,
 			</if>
-			<if test="insertTime != null">
-				 insert_time,
+			<if test="qType != null">
+				 q_type,
 			</if>
-			<if test="updateTime != null">
-				 update_time,
+			<if test="qIsflag != null">
+				 q_isflag,
+			</if>
+			<if test="inserttime != null">
+				 inserttime,
+			</if>
+			<if test="updatetime != null">
+				 updatetime,
 			</if>
 
 		 </trim>
 		 <trim prefix="values (" suffix=")" suffixOverrides="," >
-			<if test="id != null">
-				 #{id},
+			<if test="ID != null">
+				 #{ID},
 			</if>
 			<if test="qId != null">
 				 #{qId},
 			</if>
-			<if test="rul != null">
-				 #{rul},
+			<if test="qName != null">
+				 #{qName},
 			</if>
-			<if test="status != null">
-				 #{status},
+			<if test="qUrl != null">
+				 #{qUrl},
 			</if>
-			<if test="insertTime != null">
-				 #{insertTime},
+			<if test="qType != null">
+				 #{qType},
 			</if>
-			<if test="updateTime != null">
-				 #{updateTime},
+			<if test="qIsflag != null">
+				 #{qIsflag},
+			</if>
+			<if test="inserttime != null">
+				 #{inserttime},
+			</if>
+			<if test="updatetime != null">
+				 #{updatetime},
 			</if>
 		 </trim>
 	</insert>
@@ -99,21 +117,27 @@
 			<if test="qId != null">
 				 q_id = #{qId},
 			</if>
-			<if test="rul != null">
-				 rul = #{rul},
+			<if test="qName != null">
+				 q_name = #{qName},
 			</if>
-			<if test="status != null">
-				 status = #{status},
+			<if test="qUrl != null">
+				 q_url = #{qUrl},
 			</if>
-			<if test="insertTime != null">
-				 insert_time = #{insertTime},
+			<if test="qType != null">
+				 q_type = #{qType},
 			</if>
-			<if test="updateTime != null">
-				 update_time = #{updateTime},
+			<if test="qIsflag != null">
+				 q_isflag = #{qIsflag},
+			</if>
+			<if test="inserttime != null">
+				 inserttime = #{inserttime},
+			</if>
+			<if test="updatetime != null">
+				 updatetime = #{updatetime},
 			</if>
 
  		 </set>
-		 WHERE id = #{id}
+		 WHERE ID = #{ID}
 	</update>
 
 

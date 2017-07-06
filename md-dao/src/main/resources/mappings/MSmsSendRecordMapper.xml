@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.md.mapper.MSmsSendRecordMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		  id, phone, content, send_time, status, retry_times, version, scenarios, channel
+	</sql>
+
+	<!-- 通用条件-->
+	<sql id="Base_Condition">
+		<where>
+			<if test="null != id">
+				AND id = #{id}
+			</if>
+			<if test="null != phone and '' != phone">
+				AND phone = #{phone}
+			</if>
+			<if test="null != content and '' != content">
+				AND content = #{content}
+			</if>
+			<if test="null != sendTime">
+				AND send_time = #{sendTime}
+			</if>
+			<if test="null != status">
+				AND status = #{status}
+			</if>
+			<if test="null != retryTimes">
+				AND retry_times = #{retryTimes}
+			</if>
+			<if test="null != version">
+				AND version = #{version}
+			</if>
+			<if test="null != scenarios and '' != scenarios">
+				AND scenarios = #{scenarios}
+			</if>
+			<if test="null != channel and '' != channel">
+				AND channel = #{channel}
+			</if>
+
+		</where>
+	</sql>
+
+	<!-- 查询 -->
+	<select id="selectList" resultType="mSmsSendRecord">
+		 SELECT
+			 <include refid="Base_Column_List" />
+		 FROM m_sms_send_record
+			 <include refid="Base_Condition" />
+	</select>
+
+	<!--删除 -->
+	<delete id="delete" parameterType="mSmsSendRecord">
+		 DELETE FROM m_sms_send_record
+		 WHERE id = #{id}
+	</delete>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert" parameterType="mSmsSendRecord">
+		 INSERT INTO m_sms_send_record
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 id,
+			</if>
+			<if test="phone != null">
+				 phone,
+			</if>
+			<if test="content != null">
+				 content,
+			</if>
+			<if test="sendTime != null">
+				 send_time,
+			</if>
+			<if test="status != null">
+				 status,
+			</if>
+			<if test="retryTimes != null">
+				 retry_times,
+			</if>
+			<if test="version != null">
+				 version,
+			</if>
+			<if test="scenarios != null">
+				 scenarios,
+			</if>
+			<if test="channel != null">
+				 channel,
+			</if>
+
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 #{id},
+			</if>
+			<if test="phone != null">
+				 #{phone},
+			</if>
+			<if test="content != null">
+				 #{content},
+			</if>
+			<if test="sendTime != null">
+				 #{sendTime},
+			</if>
+			<if test="status != null">
+				 #{status},
+			</if>
+			<if test="retryTimes != null">
+				 #{retryTimes},
+			</if>
+			<if test="version != null">
+				 #{version},
+			</if>
+			<if test="scenarios != null">
+				 #{scenarios},
+			</if>
+			<if test="channel != null">
+				 #{channel},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改（匹配有值的字段）-->
+	<update id="update" parameterType="mSmsSendRecord">
+		 UPDATE m_sms_send_record
+ 		 <set> 
+			<if test="phone != null">
+				 phone = #{phone},
+			</if>
+			<if test="content != null">
+				 content = #{content},
+			</if>
+			<if test="sendTime != null">
+				 send_time = #{sendTime},
+			</if>
+			<if test="status != null">
+				 status = #{status},
+			</if>
+			<if test="retryTimes != null">
+				 retry_times = #{retryTimes},
+			</if>
+			<if test="version != null">
+				 version = #{version},
+			</if>
+			<if test="scenarios != null">
+				 scenarios = #{scenarios},
+			</if>
+			<if test="channel != null">
+				 channel = #{channel},
+			</if>
+
+ 		 </set>
+		 WHERE id = #{id}
+	</update>
+
+
+</mapper>

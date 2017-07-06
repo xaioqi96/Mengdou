@@ -4,47 +4,47 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		  id, title, content, answer, ask_num, reward_num, level, is_home, status, user_id, insert_time, update_time
+		  ID, q_title, q_content, q_answer, q_number, q_rewardnum, userid, q_level, inserttime, q_ishomepage, updatetime, q_isflag
 	</sql>
 
 	<!-- 通用条件-->
 	<sql id="Base_Condition">
 		<where>
-			<if test="null != id">
-				AND id = #{id}
+			<if test="null != ID">
+				AND ID = #{ID}
 			</if>
-			<if test="null != title and '' != title">
-				AND title = #{title}
+			<if test="null != qTitle and '' != qTitle">
+				AND q_title = #{qTitle}
 			</if>
-			<if test="null != content and '' != content">
-				AND content = #{content}
+			<if test="null != qContent and '' != qContent">
+				AND q_content = #{qContent}
 			</if>
-			<if test="null != answer and '' != answer">
-				AND answer = #{answer}
+			<if test="null != qAnswer and '' != qAnswer">
+				AND q_answer = #{qAnswer}
 			</if>
-			<if test="null != askNum">
-				AND ask_num = #{askNum}
+			<if test="null != qNumber">
+				AND q_number = #{qNumber}
 			</if>
-			<if test="null != rewardNum">
-				AND reward_num = #{rewardNum}
+			<if test="null != qRewardnum">
+				AND q_rewardnum = #{qRewardnum}
 			</if>
-			<if test="null != level">
-				AND level = #{level}
+			<if test="null != userid">
+				AND userid = #{userid}
 			</if>
-			<if test="null != isHome and '' != isHome">
-				AND is_home = #{isHome}
+			<if test="null != qLevel and '' != qLevel">
+				AND q_level = #{qLevel}
 			</if>
-			<if test="null != status and '' != status">
-				AND status = #{status}
+			<if test="null != inserttime">
+				AND inserttime = #{inserttime}
 			</if>
-			<if test="null != userId">
-				AND user_id = #{userId}
+			<if test="null != qIshomepage and '' != qIshomepage">
+				AND q_ishomepage = #{qIshomepage}
 			</if>
-			<if test="null != insertTime and '' != insertTime">
-				AND insert_time = #{insertTime}
+			<if test="null != updatetime">
+				AND updatetime = #{updatetime}
 			</if>
-			<if test="null != updateTime and '' != updateTime">
-				AND update_time = #{updateTime}
+			<if test="null != qIsflag and '' != qIsflag">
+				AND q_isflag = #{qIsflag}
 			</if>
 
 		</where>
@@ -61,87 +61,87 @@
 	<!--删除 -->
 	<delete id="delete" parameterType="mQuizQuestions">
 		 DELETE FROM m_quiz_questions
-		 WHERE id = #{id}
+		 WHERE ID = #{ID}
 	</delete>
 
 	<!-- 添加 （匹配有值的字段）-->
 	<insert id="insert" parameterType="mQuizQuestions">
 		 INSERT INTO m_quiz_questions
 		 <trim prefix="(" suffix=")" suffixOverrides="," >
-			<if test="id != null">
-				 id,
+			<if test="ID != null">
+				 ID,
 			</if>
-			<if test="title != null">
-				 title,
+			<if test="qTitle != null">
+				 q_title,
 			</if>
-			<if test="content != null">
-				 content,
+			<if test="qContent != null">
+				 q_content,
 			</if>
-			<if test="answer != null">
-				 answer,
+			<if test="qAnswer != null">
+				 q_answer,
 			</if>
-			<if test="askNum != null">
-				 ask_num,
+			<if test="qNumber != null">
+				 q_number,
 			</if>
-			<if test="rewardNum != null">
-				 reward_num,
+			<if test="qRewardnum != null">
+				 q_rewardnum,
 			</if>
-			<if test="level != null">
-				 level,
+			<if test="userid != null">
+				 userid,
 			</if>
-			<if test="isHome != null">
-				 is_home,
+			<if test="qLevel != null">
+				 q_level,
 			</if>
-			<if test="status != null">
-				 status,
+			<if test="inserttime != null">
+				 inserttime,
 			</if>
-			<if test="userId != null">
-				 user_id,
+			<if test="qIshomepage != null">
+				 q_ishomepage,
 			</if>
-			<if test="insertTime != null">
-				 insert_time,
+			<if test="updatetime != null">
+				 updatetime,
 			</if>
-			<if test="updateTime != null">
-				 update_time,
+			<if test="qIsflag != null">
+				 q_isflag,
 			</if>
 
 		 </trim>
 		 <trim prefix="values (" suffix=")" suffixOverrides="," >
-			<if test="id != null">
-				 #{id},
+			<if test="ID != null">
+				 #{ID},
 			</if>
-			<if test="title != null">
-				 #{title},
+			<if test="qTitle != null">
+				 #{qTitle},
 			</if>
-			<if test="content != null">
-				 #{content},
+			<if test="qContent != null">
+				 #{qContent},
 			</if>
-			<if test="answer != null">
-				 #{answer},
+			<if test="qAnswer != null">
+				 #{qAnswer},
 			</if>
-			<if test="askNum != null">
-				 #{askNum},
+			<if test="qNumber != null">
+				 #{qNumber},
 			</if>
-			<if test="rewardNum != null">
-				 #{rewardNum},
+			<if test="qRewardnum != null">
+				 #{qRewardnum},
 			</if>
-			<if test="level != null">
-				 #{level},
+			<if test="userid != null">
+				 #{userid},
 			</if>
-			<if test="isHome != null">
-				 #{isHome},
+			<if test="qLevel != null">
+				 #{qLevel},
 			</if>
-			<if test="status != null">
-				 #{status},
+			<if test="inserttime != null">
+				 #{inserttime},
 			</if>
-			<if test="userId != null">
-				 #{userId},
+			<if test="qIshomepage != null">
+				 #{qIshomepage},
 			</if>
-			<if test="insertTime != null">
-				 #{insertTime},
+			<if test="updatetime != null">
+				 #{updatetime},
 			</if>
-			<if test="updateTime != null">
-				 #{updateTime},
+			<if test="qIsflag != null">
+				 #{qIsflag},
 			</if>
 		 </trim>
 	</insert>
@@ -150,42 +150,42 @@
 	<update id="update" parameterType="mQuizQuestions">
 		 UPDATE m_quiz_questions
  		 <set> 
-			<if test="title != null">
-				 title = #{title},
+			<if test="qTitle != null">
+				 q_title = #{qTitle},
 			</if>
-			<if test="content != null">
-				 content = #{content},
+			<if test="qContent != null">
+				 q_content = #{qContent},
 			</if>
-			<if test="answer != null">
-				 answer = #{answer},
+			<if test="qAnswer != null">
+				 q_answer = #{qAnswer},
 			</if>
-			<if test="askNum != null">
-				 ask_num = #{askNum},
+			<if test="qNumber != null">
+				 q_number = #{qNumber},
 			</if>
-			<if test="rewardNum != null">
-				 reward_num = #{rewardNum},
+			<if test="qRewardnum != null">
+				 q_rewardnum = #{qRewardnum},
 			</if>
-			<if test="level != null">
-				 level = #{level},
+			<if test="userid != null">
+				 userid = #{userid},
 			</if>
-			<if test="isHome != null">
-				 is_home = #{isHome},
+			<if test="qLevel != null">
+				 q_level = #{qLevel},
 			</if>
-			<if test="status != null">
-				 status = #{status},
+			<if test="inserttime != null">
+				 inserttime = #{inserttime},
 			</if>
-			<if test="userId != null">
-				 user_id = #{userId},
+			<if test="qIshomepage != null">
+				 q_ishomepage = #{qIshomepage},
 			</if>
-			<if test="insertTime != null">
-				 insert_time = #{insertTime},
+			<if test="updatetime != null">
+				 updatetime = #{updatetime},
 			</if>
-			<if test="updateTime != null">
-				 update_time = #{updateTime},
+			<if test="qIsflag != null">
+				 q_isflag = #{qIsflag},
 			</if>
 
  		 </set>
-		 WHERE id = #{id}
+		 WHERE ID = #{ID}
 	</update>
 
 

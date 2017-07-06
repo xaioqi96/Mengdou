@@ -10,159 +10,159 @@ public class MQuizQuestions implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**  */
-	private Long id;
+	private Long ID;
 
-	/** 标题 */
-	private String title;
+	/**  */
+	private String qTitle;
 
-	/** 内容 */
-	private String content;
+	/**  */
+	private String qContent;
 
-	/** 答案 */
-	private String answer;
+	/**  */
+	private String qAnswer;
 
-	/** 竞猜人数 */
-	private Integer askNum;
+	/**  */
+	private Integer qNumber;
 
-	/** 奖励数量 */
-	private Integer rewardNum;
+	/**  */
+	private Integer qRewardnum;
 
-	/** 题目级别 */
-	private Integer level;
+	/**  */
+	private Integer userid;
 
-	/** 是否首页显示 */
-	private String isHome;
+	/** 1、普通竞猜 2、高级竞猜 */
+	private String qLevel;
 
-	/** 状态（1：有效，0：无效） */
-	private String status;
+	/**  */
+	private java.util.Date inserttime;
 
-	/** 发布人ID */
-	private Long userId;
+	/** 1、显示  0、不显示 */
+	private String qIshomepage;
 
-	/** 插入时间 */
-	private String insertTime;
+	/**  */
+	private java.util.Date updatetime;
 
-	/** 最近修改时间 */
-	private String updateTime;
+	/** 1、有效 2、无效 3、竞猜完毕 */
+	private String qIsflag;
 
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setID(Long ID) {
+		this.ID = ID;
 	}
 
 
-	public Long getId() {
-		return this.id;
+	public Long getID() {
+		return this.ID;
 	}
 
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setQTitle(String qTitle) {
+		this.qTitle = qTitle;
 	}
 
 
-	public String getTitle() {
-		return this.title;
+	public String getQTitle() {
+		return this.qTitle;
 	}
 
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setQContent(String qContent) {
+		this.qContent = qContent;
 	}
 
 
-	public String getContent() {
-		return this.content;
+	public String getQContent() {
+		return this.qContent;
 	}
 
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setQAnswer(String qAnswer) {
+		this.qAnswer = qAnswer;
 	}
 
 
-	public String getAnswer() {
-		return this.answer;
+	public String getQAnswer() {
+		return this.qAnswer;
 	}
 
 
-	public void setAskNum(Integer askNum) {
-		this.askNum = askNum;
+	public void setQNumber(Integer qNumber) {
+		this.qNumber = qNumber;
 	}
 
 
-	public Integer getAskNum() {
-		return this.askNum;
+	public Integer getQNumber() {
+		return this.qNumber;
 	}
 
 
-	public void setRewardNum(Integer rewardNum) {
-		this.rewardNum = rewardNum;
+	public void setQRewardnum(Integer qRewardnum) {
+		this.qRewardnum = qRewardnum;
 	}
 
 
-	public Integer getRewardNum() {
-		return this.rewardNum;
+	public Integer getQRewardnum() {
+		return this.qRewardnum;
 	}
 
 
-	public void setLevel(Integer level) {
-		this.level = level;
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
 
-	public Integer getLevel() {
-		return this.level;
+	public Integer getUserid() {
+		return this.userid;
 	}
 
 
-	public void setIsHome(String isHome) {
-		this.isHome = isHome;
+	public void setQLevel(String qLevel) {
+		this.qLevel = qLevel;
 	}
 
 
-	public String getIsHome() {
-		return this.isHome;
+	public String getQLevel() {
+		return this.qLevel;
 	}
 
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setInserttime(java.util.Date inserttime) {
+		this.inserttime = inserttime;
 	}
 
 
-	public String getStatus() {
-		return this.status;
+	public java.util.Date getInserttime() {
+		return this.inserttime;
 	}
 
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setQIshomepage(String qIshomepage) {
+		this.qIshomepage = qIshomepage;
 	}
 
 
-	public Long getUserId() {
-		return this.userId;
+	public String getQIshomepage() {
+		return this.qIshomepage;
 	}
 
 
-	public void setInsertTime(String insertTime) {
-		this.insertTime = insertTime;
+	public void setUpdatetime(java.util.Date updatetime) {
+		this.updatetime = updatetime;
 	}
 
 
-	public String getInsertTime() {
-		return this.insertTime;
+	public java.util.Date getUpdatetime() {
+		return this.updatetime;
 	}
 
 
-	public void setUpdateTime(String updateTime) {
-		this.updateTime = updateTime;
+	public void setQIsflag(String qIsflag) {
+		this.qIsflag = qIsflag;
 	}
 
 
-	public String getUpdateTime() {
-		return this.updateTime;
+	public String getQIsflag() {
+		return this.qIsflag;
 	}
 
 }
