@@ -29,4 +29,11 @@ public interface UserService {
      * 个人中心
      * */
     public void userCenter(JSONObject requestData, AjaxResult result);
+    
+    /**
+     * 注册短信验证码接口
+     * @param requestData
+     * @param result
+     */
+    public void sendsms(JSONObject requestData, AjaxResult result);
 }

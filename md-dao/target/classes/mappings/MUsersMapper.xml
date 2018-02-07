@@ -53,10 +53,8 @@
 	</delete>
 
 	<!-- 添加 （匹配有值的字段）-->
-	<insert id="insert" parameterType="mUsers">
-		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="carNo">
-			SELECT LAST_INSERT_ID() AS userId
-		</selectKey>
+	<insert id="insert" parameterType="mUsers" useGeneratedKeys="true" keyProperty="userId">
+
 
 		INSERT INTO m_users
 		<trim prefix="(" suffix=")" suffixOverrides="," >

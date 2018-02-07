@@ -9,82 +9,108 @@ public class MQuizQuestionsImage implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	/** ID */
-	private Long id;
+	/**  */
+	private Long ID;
 
-	/** 题目ID */
-	private Long qId;
+	/**  */
+	private Integer qId;
 
-	/** 图片路径 */
-	private String rul;
+	/**  */
+	private String qName;
 
-	/** 状态（1：有效、0：无效） */
-	private String status;
+	/**  */
+	private String qUrl;
 
-	/** 插入时间 */
-	private String insertTime;
+	/** 1、普通竞猜 2、高级竞猜 */
+	private String qType;
 
-	/** 修改时间 */
-	private String updateTime;
+	/** 1、有效 2、无效 3、竞猜完毕 */
+	private String qIsflag;
+
+	/**  */
+	private java.util.Date inserttime;
+
+	/**  */
+	private java.util.Date updatetime;
 
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setID(Long ID) {
+		this.ID = ID;
 	}
 
 
-	public Long getId() {
-		return this.id;
+	public Long getID() {
+		return this.ID;
 	}
 
 
-	public void setQId(Long qId) {
+	public void setQId(Integer qId) {
 		this.qId = qId;
 	}
 
 
-	public Long getQId() {
+	public Integer getQId() {
 		return this.qId;
 	}
 
 
-	public void setRul(String rul) {
-		this.rul = rul;
+	public void setQName(String qName) {
+		this.qName = qName;
 	}
 
 
-	public String getRul() {
-		return this.rul;
+	public String getQName() {
+		return this.qName;
 	}
 
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setQUrl(String qUrl) {
+		this.qUrl = qUrl;
 	}
 
 
-	public String getStatus() {
-		return this.status;
+	public String getQUrl() {
+		return this.qUrl;
 	}
 
 
-	public void setInsertTime(String insertTime) {
-		this.insertTime = insertTime;
+	public void setQType(String qType) {
+		this.qType = qType;
 	}
 
 
-	public String getInsertTime() {
-		return this.insertTime;
+	public String getQType() {
+		return this.qType;
 	}
 
 
-	public void setUpdateTime(String updateTime) {
-		this.updateTime = updateTime;
+	public void setQIsflag(String qIsflag) {
+		this.qIsflag = qIsflag;
 	}
 
 
-	public String getUpdateTime() {
-		return this.updateTime;
+	public String getQIsflag() {
+		return this.qIsflag;
+	}
+
+
+	public void setInserttime(java.util.Date inserttime) {
+		this.inserttime = inserttime;
+	}
+
+
+	public java.util.Date getInserttime() {
+		return this.inserttime;
+	}
+
+
+	public void setUpdatetime(java.util.Date updatetime) {
+		this.updatetime = updatetime;
+	}
+
+
+	public java.util.Date getUpdatetime() {
+		return this.updatetime;
 	}
 
 }

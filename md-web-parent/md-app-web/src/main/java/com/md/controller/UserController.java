@@ -84,5 +84,21 @@ public class UserController extends BaseController{
         return result;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/sendsms", method = RequestMethod.POST)
+    public AjaxResult sendsms(HttpServletRequest request ) {
+        AjaxResult result = new AjaxResult();
+
+        try {
+            JSONObject requestData = (JSONObject) request.getAttribute("requestData");
+            userService.sendsms(requestData,result);
+
+        } catch ( Exception e ) {
+            logger.error("注册短信验证码-/user/sendsms", e);
+            result.setMessage(ResponseCode.REQUEST_ERROR.getDesc());
+            result.setStatusCode(ResponseCode.REQUEST_ERROR.getCode());
+        }
+        return result;
+    }
 
 }

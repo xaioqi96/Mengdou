@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.md.mapper.MVerifyCodeMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		  id, code, code_time, type, account, memo, email, cust_no
+	</sql>
+
+	<!-- 通用条件-->
+	<sql id="Base_Condition">
+		<where>
+			<if test="null != id">
+				AND id = #{id}
+			</if>
+			<if test="null != code and '' != code">
+				AND code = #{code}
+			</if>
+			<if test="null != codeTime">
+				AND code_time = #{codeTime}
+			</if>
+			<if test="null != codeDate">
+				AND DATE_FORMAT(code_time,'%Y-%m-%d') = DATE_FORMAT(NOW(), '%Y-%m-%d')
+			</if>
+			<if test="null != type and '' != type">
+				AND type = #{type}
+			</if>
+			<if test="null != account and '' != account">
+				AND account = #{account}
+			</if>
+			<if test="null != memo and '' != memo">
+				AND memo = #{memo}
+			</if>
+			<if test="null != email and '' != email">
+				AND email = #{email}
+			</if>
+			<if test="null != custNo and '' != custNo">
+				AND cust_no = #{custNo}
+			</if>
+		order by id desc
+		</where>
+	</sql>
+
+	<!-- 查询 -->
+	<select id="selectList" resultType="mVerifyCode">
+		 SELECT
+			 <include refid="Base_Column_List" />
+		 FROM m_verify_code
+			 <include refid="Base_Condition" />
+	</select>
+
+	<!--删除 -->
+	<delete id="delete" parameterType="mVerifyCode">
+		 DELETE FROM m_verify_code
+		 WHERE id = #{id}
+	</delete>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert" parameterType="mVerifyCode">
+		 INSERT INTO m_verify_code
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 id,
+			</if>
+			<if test="code != null">
+				 code,
+			</if>
+			<if test="codeTime != null">
+				 code_time,
+			</if>
+			<if test="type != null">
+				 type,
+			</if>
+			<if test="account != null">
+				 account,
+			</if>
+			<if test="memo != null">
+				 memo,
+			</if>
+			<if test="email != null">
+				 email,
+			</if>
+			<if test="custNo != null">
+				 cust_no,
+			</if>
+
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 #{id},
+			</if>
+			<if test="code != null">
+				 #{code},
+			</if>
+			<if test="codeTime != null">
+				 #{codeTime},
+			</if>
+			<if test="type != null">
+				 #{type},
+			</if>
+			<if test="account != null">
+				 #{account},
+			</if>
+			<if test="memo != null">
+				 #{memo},
+			</if>
+			<if test="email != null">
+				 #{email},
+			</if>
+			<if test="custNo != null">
+				 #{custNo},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改（匹配有值的字段）-->
+	<update id="update" parameterType="mVerifyCode">
+		 UPDATE m_verify_code
+ 		 <set> 
+			<if test="code != null">
+				 code = #{code},
+			</if>
+			<if test="codeTime != null">
+				 code_time = #{codeTime},
+			</if>
+			<if test="type != null">
+				 type = #{type},
+			</if>
+			<if test="account != null">
+				 account = #{account},
+			</if>
+			<if test="memo != null">
+				 memo = #{memo},
+			</if>
+			<if test="email != null">
+				 email = #{email},
+			</if>
+			<if test="custNo != null">
+				 cust_no = #{custNo},
+			</if>
+
+ 		 </set>
+		 WHERE id = #{id}
+	</update>
+
+
+</mapper>
